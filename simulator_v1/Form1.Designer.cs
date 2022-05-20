@@ -47,6 +47,7 @@
             this.login_button.TabIndex = 0;
             this.login_button.Text = "Sign in";
             this.login_button.UseVisualStyleBackColor = true;
+            this.login_button.Click += new System.EventHandler(this.login_button_Click);
             // 
             // password_box
             // 
@@ -54,6 +55,7 @@
             this.password_box.Name = "password_box";
             this.password_box.Size = new System.Drawing.Size(213, 20);
             this.password_box.TabIndex = 1;
+            this.password_box.TextChanged += new System.EventHandler(this.password_box_TextChanged);
             // 
             // textBox1
             // 
@@ -61,6 +63,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(213, 20);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 

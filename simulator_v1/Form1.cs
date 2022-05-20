@@ -16,5 +16,20 @@ namespace simulator_v1
         {
             InitializeComponent();
         }
+
+        private void login_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void password_box_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

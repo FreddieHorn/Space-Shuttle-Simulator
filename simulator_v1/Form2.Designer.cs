@@ -38,19 +38,21 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.life_supprt = new System.Windows.Forms.RadioButton();
-            this.megadrive = new System.Windows.Forms.RadioButton();
             this.button4 = new System.Windows.Forms.Button();
-            this.fuel_extraction_sys = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.speed_bar = new System.Windows.Forms.TrackBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.extract_fuel = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.label6 = new System.Windows.Forms.Label();
+            this.life_supp_checkbx = new System.Windows.Forms.CheckBox();
+            this.mega_drive_checkbx = new System.Windows.Forms.CheckBox();
+            this.engage_fuel_chckbx = new System.Windows.Forms.CheckBox();
+            this.placeholder_chckbox = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.speed_bar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -137,30 +139,6 @@
             this.button3.Text = "idk xD";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // life_supprt
-            // 
-            this.life_supprt.AutoSize = true;
-            this.life_supprt.Location = new System.Drawing.Point(865, 117);
-            this.life_supprt.Name = "life_supprt";
-            this.life_supprt.Size = new System.Drawing.Size(140, 17);
-            this.life_supprt.TabIndex = 9;
-            this.life_supprt.TabStop = true;
-            this.life_supprt.Text = "Seal life support systems";
-            this.life_supprt.UseVisualStyleBackColor = true;
-            this.life_supprt.CheckedChanged += new System.EventHandler(this.life_supprt_CheckedChanged);
-            // 
-            // megadrive
-            // 
-            this.megadrive.AutoSize = true;
-            this.megadrive.Location = new System.Drawing.Point(1036, 117);
-            this.megadrive.Name = "megadrive";
-            this.megadrive.Size = new System.Drawing.Size(92, 17);
-            this.megadrive.TabIndex = 10;
-            this.megadrive.TabStop = true;
-            this.megadrive.Text = "MEGA DRIVE";
-            this.megadrive.UseVisualStyleBackColor = true;
-            this.megadrive.CheckedChanged += new System.EventHandler(this.megadrive_CheckedChanged);
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(0, 0);
@@ -171,36 +149,13 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // fuel_extraction_sys
+            // speed_bar
             // 
-            this.fuel_extraction_sys.AutoSize = true;
-            this.fuel_extraction_sys.Location = new System.Drawing.Point(864, 153);
-            this.fuel_extraction_sys.Name = "fuel_extraction_sys";
-            this.fuel_extraction_sys.Size = new System.Drawing.Size(166, 17);
-            this.fuel_extraction_sys.TabIndex = 12;
-            this.fuel_extraction_sys.TabStop = true;
-            this.fuel_extraction_sys.Text = "Engage fuel extraction system";
-            this.fuel_extraction_sys.UseVisualStyleBackColor = true;
-            this.fuel_extraction_sys.CheckedChanged += new System.EventHandler(this.fuel_extraction_sys_CheckedChanged);
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(1036, 153);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(85, 17);
-            this.radioButton4.TabIndex = 13;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "radioButton4";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(926, 361);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(104, 45);
-            this.trackBar1.TabIndex = 14;
+            this.speed_bar.Location = new System.Drawing.Point(944, 370);
+            this.speed_bar.Name = "speed_bar";
+            this.speed_bar.Size = new System.Drawing.Size(104, 45);
+            this.speed_bar.TabIndex = 14;
+            this.speed_bar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // pictureBox1
             // 
@@ -223,24 +178,29 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.extract_fuel);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Location = new System.Drawing.Point(871, 245);
+            this.panel1.Location = new System.Drawing.Point(890, 245);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 85);
             this.panel1.TabIndex = 17;
             // 
-            // button5
+            // extract_fuel
             // 
-            this.button5.Location = new System.Drawing.Point(0, 41);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(125, 23);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.extract_fuel.Location = new System.Drawing.Point(0, 41);
+            this.extract_fuel.Name = "extract_fuel";
+            this.extract_fuel.Size = new System.Drawing.Size(125, 23);
+            this.extract_fuel.TabIndex = 18;
+            this.extract_fuel.Text = "Extract fuel";
+            this.extract_fuel.UseVisualStyleBackColor = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label5
             // 
@@ -252,20 +212,82 @@
             this.label5.TabIndex = 18;
             this.label5.Text = "Action Panel";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(977, 354);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Speed";
+            // 
+            // life_supp_checkbx
+            // 
+            this.life_supp_checkbx.AutoSize = true;
+            this.life_supp_checkbx.Location = new System.Drawing.Point(871, 118);
+            this.life_supp_checkbx.Name = "life_supp_checkbx";
+            this.life_supp_checkbx.Size = new System.Drawing.Size(141, 17);
+            this.life_supp_checkbx.TabIndex = 20;
+            this.life_supp_checkbx.Text = "Seal life support systems";
+            this.life_supp_checkbx.UseVisualStyleBackColor = true;
+            this.life_supp_checkbx.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // mega_drive_checkbx
+            // 
+            this.mega_drive_checkbx.AutoSize = true;
+            this.mega_drive_checkbx.Location = new System.Drawing.Point(1041, 118);
+            this.mega_drive_checkbx.Name = "mega_drive_checkbx";
+            this.mega_drive_checkbx.Size = new System.Drawing.Size(79, 17);
+            this.mega_drive_checkbx.TabIndex = 21;
+            this.mega_drive_checkbx.Text = "Mega drive";
+            this.mega_drive_checkbx.UseVisualStyleBackColor = true;
+            this.mega_drive_checkbx.CheckedChanged += new System.EventHandler(this.mega_drive_checkbx_CheckedChanged);
+            // 
+            // engage_fuel_chckbx
+            // 
+            this.engage_fuel_chckbx.AutoSize = true;
+            this.engage_fuel_chckbx.Location = new System.Drawing.Point(871, 159);
+            this.engage_fuel_chckbx.Name = "engage_fuel_chckbx";
+            this.engage_fuel_chckbx.Size = new System.Drawing.Size(167, 17);
+            this.engage_fuel_chckbx.TabIndex = 22;
+            this.engage_fuel_chckbx.Text = "Engage fuel extraction system";
+            this.engage_fuel_chckbx.UseVisualStyleBackColor = true;
+            this.engage_fuel_chckbx.CheckedChanged += new System.EventHandler(this.engage_fuel_chckbx_CheckedChanged);
+            // 
+            // placeholder_chckbox
+            // 
+            this.placeholder_chckbox.AutoSize = true;
+            this.placeholder_chckbox.Location = new System.Drawing.Point(1041, 159);
+            this.placeholder_chckbox.Name = "placeholder_chckbox";
+            this.placeholder_chckbox.Size = new System.Drawing.Size(82, 17);
+            this.placeholder_chckbox.TabIndex = 23;
+            this.placeholder_chckbox.Text = "Placeholder";
+            this.placeholder_chckbox.UseVisualStyleBackColor = true;
+            this.placeholder_chckbox.CheckedChanged += new System.EventHandler(this.placeholder_chckbox_CheckedChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(95, 268);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 24;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1124, 590);
+            this.ClientSize = new System.Drawing.Size(1135, 416);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.placeholder_chckbox);
+            this.Controls.Add(this.engage_fuel_chckbx);
+            this.Controls.Add(this.mega_drive_checkbx);
+            this.Controls.Add(this.life_supp_checkbx);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.fuel_extraction_sys);
-            this.Controls.Add(this.megadrive);
-            this.Controls.Add(this.life_supprt);
+            this.Controls.Add(this.speed_bar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -274,7 +296,7 @@
             this.Controls.Add(this.progressBar1);
             this.Name = "Form2";
             this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speed_bar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -293,17 +315,19 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.RadioButton life_supprt;
-        private System.Windows.Forms.RadioButton megadrive;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.RadioButton fuel_extraction_sys;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar speed_bar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button extract_fuel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox life_supp_checkbx;
+        private System.Windows.Forms.CheckBox mega_drive_checkbx;
+        private System.Windows.Forms.CheckBox engage_fuel_chckbx;
+        private System.Windows.Forms.CheckBox placeholder_chckbox;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

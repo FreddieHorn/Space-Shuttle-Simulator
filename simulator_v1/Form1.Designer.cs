@@ -52,7 +52,9 @@
             // password_box
             // 
             this.password_box.Location = new System.Drawing.Point(284, 347);
+            this.password_box.MaxLength = 15;
             this.password_box.Name = "password_box";
+            this.password_box.PasswordChar = '*';
             this.password_box.Size = new System.Drawing.Size(213, 20);
             this.password_box.TabIndex = 1;
             this.password_box.TextChanged += new System.EventHandler(this.password_box_TextChanged);

@@ -40,7 +40,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.speed_bar = new System.Windows.Forms.TrackBar();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.extract_fuel = new System.Windows.Forms.Button();
@@ -52,13 +51,19 @@
             this.engage_fuel_chckbx = new System.Windows.Forms.CheckBox();
             this.placeholder_chckbox = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.oxy_timer = new System.Windows.Forms.Timer(this.components);
+            this.ele_timer = new System.Windows.Forms.Timer(this.components);
+            this.fuel_timer = new System.Windows.Forms.Timer(this.components);
+            this.random_event_timer = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.speed_bar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // progressBar1
             // 
+            this.progressBar1.BackColor = System.Drawing.Color.Chartreuse;
             this.progressBar1.Location = new System.Drawing.Point(84, 66);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(118, 23);
@@ -67,6 +72,7 @@
             // 
             // progressBar2
             // 
+            this.progressBar2.BackColor = System.Drawing.Color.Chartreuse;
             this.progressBar2.Location = new System.Drawing.Point(84, 110);
             this.progressBar2.Name = "progressBar2";
             this.progressBar2.Size = new System.Drawing.Size(118, 23);
@@ -74,6 +80,7 @@
             // 
             // progressBar3
             // 
+            this.progressBar3.BackColor = System.Drawing.Color.Chartreuse;
             this.progressBar3.Location = new System.Drawing.Point(84, 153);
             this.progressBar3.Name = "progressBar3";
             this.progressBar3.Size = new System.Drawing.Size(118, 23);
@@ -157,15 +164,6 @@
             this.speed_bar.TabIndex = 14;
             this.speed_bar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::simulator_v1.Properties.Resources.cockpit600;
-            this.pictureBox1.Location = new System.Drawing.Point(257, 52);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(601, 335);
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -196,6 +194,7 @@
             this.extract_fuel.TabIndex = 18;
             this.extract_fuel.Text = "Extract fuel";
             this.extract_fuel.UseVisualStyleBackColor = true;
+            this.extract_fuel.Click += new System.EventHandler(this.extract_fuel_Click);
             // 
             // timer1
             // 
@@ -272,6 +271,32 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 24;
             // 
+            // oxy_timer
+            // 
+            this.oxy_timer.Tick += new System.EventHandler(this.oxy_timer_Tick);
+            // 
+            // ele_timer
+            // 
+            this.ele_timer.Tick += new System.EventHandler(this.ele_timer_Tick);
+            // 
+            // fuel_timer
+            // 
+            this.fuel_timer.Interval = 1000;
+            this.fuel_timer.Tick += new System.EventHandler(this.fuel_timer_Tick);
+            // 
+            // random_event_timer
+            // 
+            this.random_event_timer.Tick += new System.EventHandler(this.random_event_timer_Tick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::simulator_v1.Properties.Resources.cockpit600;
+            this.pictureBox1.Location = new System.Drawing.Point(257, 52);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(601, 335);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,8 +322,8 @@
             this.Name = "Form2";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.speed_bar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,5 +354,9 @@
         private System.Windows.Forms.CheckBox engage_fuel_chckbx;
         private System.Windows.Forms.CheckBox placeholder_chckbox;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Timer oxy_timer;
+        private System.Windows.Forms.Timer ele_timer;
+        private System.Windows.Forms.Timer fuel_timer;
+        private System.Windows.Forms.Timer random_event_timer;
     }
 }

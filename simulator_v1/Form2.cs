@@ -12,12 +12,23 @@ namespace simulator_v1
 {
     public partial class Form2 : Form
     {
+        bool showed_fuel = true;
         public int logout_chck_time = 5;
-        
+        int fuel_value = 100;
         public Form2()
         {
             InitializeComponent();
             timer1.Start();
+            progressBar1.Step = 1;
+            oxy_timer.Start();
+            fuel_timer.Start();
+        }
+        
+
+        private void show_fuel_box_msg()
+        {
+            showed_fuel = false;
+            MessageBox.Show("Low fuel levels");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -38,6 +49,11 @@ namespace simulator_v1
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void extract_fuel_Click(object sender, EventArgs e)
+        {
+            fuel_value += 40;
         }
 
         private void progressBar1_Click(object sender, EventArgs e)
@@ -89,7 +105,51 @@ namespace simulator_v1
 
                     this.Close();
                 }
+                logout_chck_time = 60;
+                timer1.Start();
             }
         }
+
+        private void random_event_timer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fuel_timer_Tick(object sender, EventArgs e)
+        {
+            if (fuel_value >= 20)
+            {
+                progressBar3.Value = fuel_value;
+                fuel_value -= 5;
+                progressBar3.Update();
+                showed_fuel = true;
+            }
+            else if (fuel_value < 20 && fuel_value > 0)
+            {
+                if (showed_fuel)
+                {
+                    show_fuel_box_msg();
+                }
+                progressBar3.Value = fuel_value;
+                fuel_value -= 2;
+                progressBar3.Update();
+            }
+            else
+            {
+                fuel_timer.Stop();
+                MessageBox.Show("You've run out of fuel. You'll die in the vast void of space");
+                this.Close();
+            }
+        }
+
+        private void ele_timer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oxy_timer_Tick(object sender, EventArgs e)
+        {
+        }
+
     }
 }

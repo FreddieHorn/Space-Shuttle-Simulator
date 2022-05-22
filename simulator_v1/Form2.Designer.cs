@@ -36,7 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.repair_crew = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.speed_bar = new System.Windows.Forms.TrackBar();
@@ -56,6 +56,7 @@
             this.fuel_timer = new System.Windows.Forms.Timer(this.components);
             this.random_event_timer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.escape_cd = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.speed_bar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -127,15 +128,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // repair_crew
             // 
-            this.button2.Location = new System.Drawing.Point(0, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Repair crew";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.repair_crew.Location = new System.Drawing.Point(0, 21);
+            this.repair_crew.Name = "repair_crew";
+            this.repair_crew.Size = new System.Drawing.Size(125, 23);
+            this.repair_crew.TabIndex = 7;
+            this.repair_crew.Text = "Repair crew";
+            this.repair_crew.UseVisualStyleBackColor = true;
+            this.repair_crew.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -179,7 +180,7 @@
             this.panel1.Controls.Add(this.extract_fuel);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.repair_crew);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Location = new System.Drawing.Point(890, 245);
             this.panel1.Name = "panel1";
@@ -273,6 +274,7 @@
             // 
             // oxy_timer
             // 
+            this.oxy_timer.Interval = 1000;
             this.oxy_timer.Tick += new System.EventHandler(this.oxy_timer_Tick);
             // 
             // ele_timer
@@ -286,6 +288,7 @@
             // 
             // random_event_timer
             // 
+            this.random_event_timer.Interval = 10000;
             this.random_event_timer.Tick += new System.EventHandler(this.random_event_timer_Tick);
             // 
             // pictureBox1
@@ -296,6 +299,11 @@
             this.pictureBox1.Size = new System.Drawing.Size(601, 335);
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
+            // 
+            // escape_cd
+            // 
+            this.escape_cd.Interval = 1000;
+            this.escape_cd.Tick += new System.EventHandler(this.escape_cd_Tick);
             // 
             // Form2
             // 
@@ -338,7 +346,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button repair_crew;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TrackBar speed_bar;
@@ -358,5 +366,6 @@
         private System.Windows.Forms.Timer ele_timer;
         private System.Windows.Forms.Timer fuel_timer;
         private System.Windows.Forms.Timer random_event_timer;
+        private System.Windows.Forms.Timer escape_cd;
     }
 }

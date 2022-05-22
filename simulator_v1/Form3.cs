@@ -46,6 +46,7 @@ namespace simulator_v1
             else if (time_left<=0)
             {
                 timer1.Stop();
+                Console.Beep();
                 MessageBox.Show("You have been logged out!");
                 exit = true;
                 this.Close();

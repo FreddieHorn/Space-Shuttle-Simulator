@@ -50,13 +50,22 @@
             this.mega_drive_checkbx = new System.Windows.Forms.CheckBox();
             this.engage_fuel_chckbx = new System.Windows.Forms.CheckBox();
             this.placeholder_chckbox = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.velo_correct = new System.Windows.Forms.TextBox();
             this.oxy_timer = new System.Windows.Forms.Timer(this.components);
             this.ele_timer = new System.Windows.Forms.Timer(this.components);
             this.fuel_timer = new System.Windows.Forms.Timer(this.components);
             this.random_event_timer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.escape_cd = new System.Windows.Forms.Timer(this.components);
+            this.spedometer = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.refresher = new System.Windows.Forms.Timer(this.components);
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.speed_bar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -142,9 +151,9 @@
             // 
             this.button3.Location = new System.Drawing.Point(123, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(77, 23);
+            this.button3.Size = new System.Drawing.Size(107, 23);
             this.button3.TabIndex = 8;
-            this.button3.Text = "idk xD";
+            this.button3.Text = "Send signal";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
@@ -159,9 +168,9 @@
             // 
             // speed_bar
             // 
-            this.speed_bar.Location = new System.Drawing.Point(944, 370);
+            this.speed_bar.Location = new System.Drawing.Point(927, 313);
             this.speed_bar.Name = "speed_bar";
-            this.speed_bar.Size = new System.Drawing.Size(104, 45);
+            this.speed_bar.Size = new System.Drawing.Size(119, 45);
             this.speed_bar.TabIndex = 14;
             this.speed_bar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
@@ -169,7 +178,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(893, 52);
+            this.label4.Location = new System.Drawing.Point(888, 12);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(191, 31);
             this.label4.TabIndex = 16;
@@ -182,9 +191,9 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.repair_crew);
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Location = new System.Drawing.Point(890, 245);
+            this.panel1.Location = new System.Drawing.Point(885, 205);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 85);
+            this.panel1.Size = new System.Drawing.Size(230, 85);
             this.panel1.TabIndex = 17;
             // 
             // extract_fuel
@@ -206,7 +215,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(893, 189);
+            this.label5.Location = new System.Drawing.Point(888, 149);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(178, 31);
             this.label5.TabIndex = 18;
@@ -215,16 +224,17 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(977, 354);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label6.Location = new System.Drawing.Point(961, 293);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.Size = new System.Drawing.Size(49, 17);
             this.label6.TabIndex = 19;
             this.label6.Text = "Speed";
             // 
             // life_supp_checkbx
             // 
             this.life_supp_checkbx.AutoSize = true;
-            this.life_supp_checkbx.Location = new System.Drawing.Point(871, 118);
+            this.life_supp_checkbx.Location = new System.Drawing.Point(866, 78);
             this.life_supp_checkbx.Name = "life_supp_checkbx";
             this.life_supp_checkbx.Size = new System.Drawing.Size(141, 17);
             this.life_supp_checkbx.TabIndex = 20;
@@ -235,7 +245,7 @@
             // mega_drive_checkbx
             // 
             this.mega_drive_checkbx.AutoSize = true;
-            this.mega_drive_checkbx.Location = new System.Drawing.Point(1041, 118);
+            this.mega_drive_checkbx.Location = new System.Drawing.Point(1036, 78);
             this.mega_drive_checkbx.Name = "mega_drive_checkbx";
             this.mega_drive_checkbx.Size = new System.Drawing.Size(79, 17);
             this.mega_drive_checkbx.TabIndex = 21;
@@ -246,7 +256,7 @@
             // engage_fuel_chckbx
             // 
             this.engage_fuel_chckbx.AutoSize = true;
-            this.engage_fuel_chckbx.Location = new System.Drawing.Point(871, 159);
+            this.engage_fuel_chckbx.Location = new System.Drawing.Point(866, 119);
             this.engage_fuel_chckbx.Name = "engage_fuel_chckbx";
             this.engage_fuel_chckbx.Size = new System.Drawing.Size(167, 17);
             this.engage_fuel_chckbx.TabIndex = 22;
@@ -257,7 +267,7 @@
             // placeholder_chckbox
             // 
             this.placeholder_chckbox.AutoSize = true;
-            this.placeholder_chckbox.Location = new System.Drawing.Point(1041, 159);
+            this.placeholder_chckbox.Location = new System.Drawing.Point(1036, 119);
             this.placeholder_chckbox.Name = "placeholder_chckbox";
             this.placeholder_chckbox.Size = new System.Drawing.Size(82, 17);
             this.placeholder_chckbox.TabIndex = 23;
@@ -265,12 +275,13 @@
             this.placeholder_chckbox.UseVisualStyleBackColor = true;
             this.placeholder_chckbox.CheckedChanged += new System.EventHandler(this.placeholder_chckbox_CheckedChanged);
             // 
-            // textBox1
+            // velo_correct
             // 
-            this.textBox1.Location = new System.Drawing.Point(95, 268);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 24;
+            this.velo_correct.Location = new System.Drawing.Point(994, 369);
+            this.velo_correct.Name = "velo_correct";
+            this.velo_correct.ReadOnly = true;
+            this.velo_correct.Size = new System.Drawing.Size(100, 20);
+            this.velo_correct.TabIndex = 24;
             // 
             // oxy_timer
             // 
@@ -288,7 +299,7 @@
             // 
             // random_event_timer
             // 
-            this.random_event_timer.Interval = 10000;
+            this.random_event_timer.Interval = 30000;
             this.random_event_timer.Tick += new System.EventHandler(this.random_event_timer_Tick);
             // 
             // pictureBox1
@@ -305,12 +316,99 @@
             this.escape_cd.Interval = 1000;
             this.escape_cd.Tick += new System.EventHandler(this.escape_cd_Tick);
             // 
+            // spedometer
+            // 
+            this.spedometer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.spedometer.Location = new System.Drawing.Point(84, 196);
+            this.spedometer.Name = "spedometer";
+            this.spedometer.ReadOnly = true;
+            this.spedometer.Size = new System.Drawing.Size(118, 23);
+            this.spedometer.TabIndex = 25;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label7.Location = new System.Drawing.Point(864, 370);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(124, 17);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Velocity correction";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.Location = new System.Drawing.Point(13, 203);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(56, 16);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Velocity";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(935, 345);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(13, 13);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(1027, 345);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(19, 13);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "10";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(1100, 372);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 13);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "[10^4 km/h]";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(1053, 345);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(65, 13);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "[10^4 km/h]";
+            // 
+            // refresher
+            // 
+            this.refresher.Tick += new System.EventHandler(this.refresher_Tick);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label13.Location = new System.Drawing.Point(429, 12);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(260, 31);
+            this.label13.TabIndex = 32;
+            this.label13.Text = "Welcome, Captain.";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1135, 416);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1162, 391);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.spedometer);
+            this.Controls.Add(this.velo_correct);
             this.Controls.Add(this.placeholder_chckbox);
             this.Controls.Add(this.engage_fuel_chckbx);
             this.Controls.Add(this.mega_drive_checkbx);
@@ -361,11 +459,20 @@
         private System.Windows.Forms.CheckBox mega_drive_checkbx;
         private System.Windows.Forms.CheckBox engage_fuel_chckbx;
         private System.Windows.Forms.CheckBox placeholder_chckbox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox velo_correct;
         private System.Windows.Forms.Timer oxy_timer;
         private System.Windows.Forms.Timer ele_timer;
         private System.Windows.Forms.Timer fuel_timer;
         private System.Windows.Forms.Timer random_event_timer;
         private System.Windows.Forms.Timer escape_cd;
+        private System.Windows.Forms.TextBox spedometer;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Timer refresher;
+        private System.Windows.Forms.Label label13;
     }
 }

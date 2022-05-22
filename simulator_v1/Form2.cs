@@ -20,7 +20,7 @@ namespace simulator_v1
         bool ele_crisis = false;
 
         int escape_cooldown = 10;
-        public int logout_chck_time = 60;
+        public int logout_chck_time = 5;
         int fuel_value = 100;
         int oxy_value = 100;
         int electricity_value = 100;
@@ -35,6 +35,7 @@ namespace simulator_v1
             fuel_timer.Start();
             random_event_timer.Start();
             ele_timer.Start();
+            refresher.Start();
         }
         
 
@@ -146,7 +147,6 @@ namespace simulator_v1
             if (logout_chck_time>0)
             {
                 logout_chck_time = logout_chck_time - 1;
-                textBox1.Text = logout_chck_time.ToString();
             }
             else
             {
@@ -165,7 +165,7 @@ namespace simulator_v1
         private void random_event_timer_Tick(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            int choice = rnd.Next(1,3);
+            int choice = rnd.Next(1,4);
             switch (choice)
             {
                 case 1:
@@ -178,6 +178,9 @@ namespace simulator_v1
                     escape_cd.Start();
                     break;
                 case 3:
+                    int spd = rnd.Next(0, 11);
+                    velo_correct.Text = spd.ToString();
+                    MessageBox.Show("Correct the speed.");
                     break;
                 case 4:
                     break;
@@ -271,6 +274,11 @@ namespace simulator_v1
                 this.Close();
             }
 
+        }
+
+        private void refresher_Tick(object sender, EventArgs e)
+        {
+            spedometer.Text = speed_bar.Value.ToString() + " [10^4 km/h]";
         }
     }
 }

@@ -42,8 +42,17 @@ namespace simulator_v1
             pictureBox3.Visible = false;
             pictureBox4.Visible = false;
         }
-        
 
+        private void stop_timers()
+        {
+            ele_timer.Stop();
+            oxy_timer.Stop();
+            fuel_timer.Stop();
+            escape_cd.Stop();
+            timer1.Stop();
+            sending_timer.Stop();
+            random_event_timer.Stop();
+        }
         private void show_fuel_box_msg()
         {
             showed_fuel = false;
@@ -177,6 +186,7 @@ namespace simulator_v1
                 timer1.Stop();
                 Form3 f3 = new Form3();
                 f3.ShowDialog();
+                stop_timers();
                 if (f3.logout())
                 {
                     this.Close();
@@ -189,7 +199,7 @@ namespace simulator_v1
         private void random_event_timer_Tick(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            int choice = 3;
+            int choice = rnd.Next(0,4);
             switch (choice)
             {
                 case 0:
@@ -236,9 +246,7 @@ namespace simulator_v1
             }
             else
             {
-                fuel_timer.Stop();
-                escape_cd.Stop();
-                random_event_timer.Stop();
+                stop_timers();
                 MessageBox.Show("You've run out of fuel. You'll die in the vast void of space");
                 this.Close();
             }
@@ -258,10 +266,8 @@ namespace simulator_v1
             }
             else if (electricity_value == 0)
             {
+                stop_timers();
                 MessageBox.Show("You have ran out of electricity. You will freeze.");
-                ele_timer.Stop();
-                escape_cd.Stop();
-                random_event_timer.Stop();
                 this.Close();
             }
         }
@@ -281,9 +287,7 @@ namespace simulator_v1
             else
             {
                 MessageBox.Show("You've ran out of oxygen.");
-                oxy_timer.Stop();
-                escape_cd.Stop();
-                random_event_timer.Stop();
+                stop_timers();
                 this.Close();
             }
             progressBar1.Update();
@@ -295,8 +299,7 @@ namespace simulator_v1
             if (escape_cooldown <= 0)
             {
                 MessageBox.Show("You were gunned down...");
-                escape_cd.Stop();
-                random_event_timer.Stop();
+                stop_timers();
                 this.Close();
             }
 
@@ -339,11 +342,7 @@ namespace simulator_v1
                         break;
                     case 3:
                         MessageBox.Show("You failed to identify yourself 4 times. You have been logged out and banned fromt he system.");
-                        sending_timer.Stop();
-                        oxy_timer.Stop();
-                        fuel_timer.Stop();
-                        ele_timer.Stop();
-                        timer1.Stop();
+                        stop_timers();
                         this.Close();
                         break;
                 }

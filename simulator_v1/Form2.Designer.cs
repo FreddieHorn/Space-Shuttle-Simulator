@@ -38,7 +38,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.repair_crew = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.speed_bar = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -49,7 +48,6 @@
             this.life_supp_checkbx = new System.Windows.Forms.CheckBox();
             this.mega_drive_checkbx = new System.Windows.Forms.CheckBox();
             this.engage_fuel_chckbx = new System.Windows.Forms.CheckBox();
-            this.placeholder_chckbox = new System.Windows.Forms.CheckBox();
             this.velo_correct = new System.Windows.Forms.TextBox();
             this.oxy_timer = new System.Windows.Forms.Timer(this.components);
             this.ele_timer = new System.Windows.Forms.Timer(this.components);
@@ -70,12 +68,14 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.sending_timer = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.speed_bar)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -142,7 +142,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(0, 61);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 23);
+            this.button1.Size = new System.Drawing.Size(125, 24);
             this.button1.TabIndex = 6;
             this.button1.Text = "Fast travel";
             this.button1.UseVisualStyleBackColor = true;
@@ -160,27 +160,17 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(123, 0);
+            this.button3.Location = new System.Drawing.Point(0, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(126, 23);
+            this.button3.Size = new System.Drawing.Size(125, 23);
             this.button3.TabIndex = 8;
             this.button3.Text = "Send signal";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(0, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 23);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "Extract Hydrogen";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // speed_bar
             // 
-            this.speed_bar.Location = new System.Drawing.Point(927, 313);
+            this.speed_bar.Location = new System.Drawing.Point(891, 313);
             this.speed_bar.Name = "speed_bar";
             this.speed_bar.Size = new System.Drawing.Size(119, 45);
             this.speed_bar.TabIndex = 14;
@@ -199,13 +189,12 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.extract_fuel);
-            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.repair_crew);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Location = new System.Drawing.Point(885, 205);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(249, 85);
+            this.panel1.Size = new System.Drawing.Size(125, 85);
             this.panel1.TabIndex = 17;
             // 
             // extract_fuel
@@ -237,7 +226,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.Location = new System.Drawing.Point(961, 293);
+            this.label6.Location = new System.Drawing.Point(925, 293);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 17);
             this.label6.TabIndex = 19;
@@ -257,7 +246,7 @@
             // mega_drive_checkbx
             // 
             this.mega_drive_checkbx.AutoSize = true;
-            this.mega_drive_checkbx.Location = new System.Drawing.Point(1055, 77);
+            this.mega_drive_checkbx.Location = new System.Drawing.Point(1071, 77);
             this.mega_drive_checkbx.Name = "mega_drive_checkbx";
             this.mega_drive_checkbx.Size = new System.Drawing.Size(79, 17);
             this.mega_drive_checkbx.TabIndex = 21;
@@ -268,24 +257,13 @@
             // engage_fuel_chckbx
             // 
             this.engage_fuel_chckbx.AutoSize = true;
-            this.engage_fuel_chckbx.Location = new System.Drawing.Point(885, 118);
+            this.engage_fuel_chckbx.Location = new System.Drawing.Point(927, 118);
             this.engage_fuel_chckbx.Name = "engage_fuel_chckbx";
             this.engage_fuel_chckbx.Size = new System.Drawing.Size(167, 17);
             this.engage_fuel_chckbx.TabIndex = 22;
             this.engage_fuel_chckbx.Text = "Engage fuel extraction system";
             this.engage_fuel_chckbx.UseVisualStyleBackColor = true;
             this.engage_fuel_chckbx.CheckedChanged += new System.EventHandler(this.engage_fuel_chckbx_CheckedChanged);
-            // 
-            // placeholder_chckbox
-            // 
-            this.placeholder_chckbox.AutoSize = true;
-            this.placeholder_chckbox.Location = new System.Drawing.Point(1055, 118);
-            this.placeholder_chckbox.Name = "placeholder_chckbox";
-            this.placeholder_chckbox.Size = new System.Drawing.Size(82, 17);
-            this.placeholder_chckbox.TabIndex = 23;
-            this.placeholder_chckbox.Text = "Placeholder";
-            this.placeholder_chckbox.UseVisualStyleBackColor = true;
-            this.placeholder_chckbox.CheckedChanged += new System.EventHandler(this.placeholder_chckbox_CheckedChanged);
             // 
             // velo_correct
             // 
@@ -351,7 +329,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(935, 345);
+            this.label9.Location = new System.Drawing.Point(897, 345);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(13, 13);
             this.label9.TabIndex = 28;
@@ -360,7 +338,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1027, 345);
+            this.label10.Location = new System.Drawing.Point(991, 345);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(19, 13);
             this.label10.TabIndex = 29;
@@ -378,7 +356,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1053, 345);
+            this.label12.Location = new System.Drawing.Point(1016, 345);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 13);
             this.label12.TabIndex = 31;
@@ -431,6 +409,15 @@
             this.sending_timer.Interval = 1000;
             this.sending_timer.Tick += new System.EventHandler(this.sending_timer_Tick);
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::simulator_v1.Properties.Resources.panel2;
+            this.pictureBox5.Location = new System.Drawing.Point(1019, 205);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(120, 85);
+            this.pictureBox5.TabIndex = 39;
+            this.pictureBox5.TabStop = false;
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::simulator_v1.Properties.Resources.red_flag;
@@ -473,6 +460,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1162, 391);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
@@ -488,7 +476,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.spedometer);
             this.Controls.Add(this.velo_correct);
-            this.Controls.Add(this.placeholder_chckbox);
             this.Controls.Add(this.engage_fuel_chckbx);
             this.Controls.Add(this.mega_drive_checkbx);
             this.Controls.Add(this.life_supp_checkbx);
@@ -508,6 +495,7 @@
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.speed_bar)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -528,7 +516,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button repair_crew;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TrackBar speed_bar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
@@ -540,7 +527,6 @@
         private System.Windows.Forms.CheckBox life_supp_checkbx;
         private System.Windows.Forms.CheckBox mega_drive_checkbx;
         private System.Windows.Forms.CheckBox engage_fuel_chckbx;
-        private System.Windows.Forms.CheckBox placeholder_chckbox;
         private System.Windows.Forms.TextBox velo_correct;
         private System.Windows.Forms.Timer oxy_timer;
         private System.Windows.Forms.Timer ele_timer;
@@ -564,5 +550,6 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Timer sending_timer;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

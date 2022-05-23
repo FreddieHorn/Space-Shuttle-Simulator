@@ -20,10 +20,12 @@ namespace simulator_v1
         bool ele_crisis = false;
 
         int escape_cooldown = 10;
-        public int logout_chck_time = 5;
+        public int logout_chck_time = 60;
         int fuel_value = 100;
         int oxy_value = 100;
         int electricity_value = 100;
+        int sending_time = 10;
+        int picbox_enum = 0;
         public Form2()
         {
             InitializeComponent();
@@ -36,6 +38,9 @@ namespace simulator_v1
             random_event_timer.Start();
             ele_timer.Start();
             refresher.Start();
+            pictureBox2.Visible = false;
+            pictureBox3.Visible = false;
+            pictureBox4.Visible = false;
         }
         
 
@@ -93,6 +98,25 @@ namespace simulator_v1
                     fuel_value += 40;
             logout_chck_time = 60;
         }
+        //signaling
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (progressBar4.Value < 60)
+            {
+                Console.Beep();
+                progressBar4.Value += 20;
+                progressBar4.Update();
+            }
+            if (progressBar4.Value == 60)
+            {
+                MessageBox.Show("Signaling successfull!");
+                progressBar4.Value = 0;
+                sending_timer.Stop();
+                sending_time = 10;
+                progressBar4.Update();
+            }
+            logout_chck_time = 60;
+        }
 
         private void progressBar1_Click(object sender, EventArgs e)
         {
@@ -138,7 +162,7 @@ namespace simulator_v1
         //speed scroll
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-
+            logout_chck_time = 60;
         }
 
         //logout timer
@@ -165,24 +189,26 @@ namespace simulator_v1
         private void random_event_timer_Tick(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            int choice = rnd.Next(1,4);
+            int choice = 3;
             switch (choice)
             {
-                case 1:
+                case 0:
                     MessageBox.Show("Oxygen Leak!");
                     oxy_crisis = true;
                     oxy_timer.Start();
                     break;
-                case 2:
+                case 1:
                     MessageBox.Show("Enemy fighter jets! Escape from the system!");
                     escape_cd.Start();
                     break;
-                case 3:
+                case 2:
                     int spd = rnd.Next(0, 11);
                     velo_correct.Text = spd.ToString();
                     MessageBox.Show("Correct the speed.");
                     break;
-                case 4:
+                case 3:
+                    MessageBox.Show("Send signal to identify yourself.");
+                    sending_timer.Start();
                     break;
             }
                     
@@ -279,6 +305,52 @@ namespace simulator_v1
         private void refresher_Tick(object sender, EventArgs e)
         {
             spedometer.Text = speed_bar.Value.ToString() + " [10^4 km/h]";
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sending_timer_Tick(object sender, EventArgs e)
+        {
+            if (sending_time>0)
+            {
+                sending_time -= 1;
+            }
+            else
+            {
+                switch(picbox_enum)
+                {
+                    case 0:
+                        pictureBox2.Visible = true;
+                        pictureBox3.Visible = false;
+                        pictureBox4.Visible = false;
+                        break;
+                    case 1:
+                        pictureBox2.Visible = true;
+                        pictureBox3.Visible = true;
+                        pictureBox4.Visible = false;
+                        break;
+                    case 2:
+                        pictureBox2.Visible = true;
+                        pictureBox3.Visible = true;
+                        pictureBox4.Visible = true;
+                        break;
+                    case 3:
+                        MessageBox.Show("You failed to identify yourself 4 times. You have been logged out and banned fromt he system.");
+                        sending_timer.Stop();
+                        oxy_timer.Stop();
+                        fuel_timer.Stop();
+                        ele_timer.Stop();
+                        timer1.Stop();
+                        this.Close();
+                        break;
+                }
+                picbox_enum++;
+                sending_timer.Stop();
+                sending_time = 10;
+            }
         }
     }
 }

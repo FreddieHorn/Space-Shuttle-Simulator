@@ -104,5 +104,8 @@
   <ItemGroup>
     <None Include="img\cockpit600.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="img\red_flag.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
